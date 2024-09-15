@@ -1,0 +1,189 @@
+<!-- <div class="shadow border p-4">
+
+@if(editUserId){
+<h2 class="text-xl font-semibold">Update Task</h2>
+}
+
+@else{
+<h2 class="text-xl font-semibold">Add Task</h2>
+}
+
+
+<form [formGroup]="taskForm">
+    <div class="flex flex-wrap">
+        <form class="example-form">
+
+            <mat-form-field class="w-full">
+                <mat-label>Assigned To</mat-label>
+                <input type="text" matInput formControlName="AssignedTo">
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+                <mat-label>Status</mat-label>
+                <input type="text" matInput formControlName="Status">
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+                <mat-label>DueDate</mat-label>
+                <input type="text" matInput formControlName="DueDate">
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+                <mat-label>Priority</mat-label>
+                <input type="text" matInput formControlName="Priority">
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+                <mat-label>Comments</mat-label>
+                <input type="text" matInput formControlName="Comments">
+            </mat-form-field>
+
+
+        </form>
+    </div>
+
+    <div class="flex justify-center">
+
+
+        @if(editUserId){
+        <button mat-raised-button color="primary" class="m-4" (click)="updateTask()">Update</button>
+
+        }
+
+        @else{
+        <button mat-raised-button color="primary" class="m-4" (click)="addTask()">Add</button>
+
+        }
+
+    </div>
+
+</form> -->
+
+<!-- _____________________________________________________________________________________________________________________________________________ -->
+
+
+<!-- <div class="shadow border p-4">
+    
+    <h2 class="text-xl font-semibold" *ngIf="editUserId; else addTaskTitle">
+      Update Task
+    </h2>
+    <ng-template #addTaskTitle>
+      <h2 class="text-2xl font-semibold bg-white  ">Add Task</h2>
+    </ng-template>
+
+    <form [formGroup]="taskForm">
+      <div class="flex flex-wrap">
+        <form class="example-form">
+          <mat-form-field class="w-full">
+            <mat-label>Assigned To</mat-label>
+            <input type="text" matInput formControlName="AssignedTo">
+          </mat-form-field>
+  
+          <mat-form-field class="w-full">
+            <mat-label>Status</mat-label>
+            <input type="text" matInput formControlName="Status">
+          </mat-form-field>
+  
+          <mat-form-field class="w-full">
+            <mat-label>DueDate</mat-label>
+            <input type="text" matInput formControlName="DueDate">
+          </mat-form-field>
+  
+          <mat-form-field class="w-full">
+            <mat-label>Priority</mat-label>
+            <input type="text" matInput formControlName="Priority">
+          </mat-form-field>
+  
+          <mat-form-field class="w-full">
+            <mat-label>Comments</mat-label>
+            <input type="text" matInput formControlName="Comments">
+          </mat-form-field>
+        </form>
+      </div>
+  
+      <div class="flex justify-center">
+        <button mat-raised-button color="primary" class="m-4" (click)="editUserId ? updateTask() : addTask()">
+          {{ editUserId ? 'Update' : 'Add' }}
+        </button>
+      </div>
+    </form>
+  </div> -->
+  
+  <!-- _____________________________________________________________________________________________________________________________________________ -->
+
+  <div class="shadow border p-4">
+    <h2 class="text-xl font-semibold" *ngIf="editUserId; else addTaskTitle">
+      Update Task
+    </h2>
+    <ng-template #addTaskTitle>
+      <h2 class="text-2xl font-semibold bg-white">Add Task</h2>
+    </ng-template>
+  
+    <form [formGroup]="taskForm">
+      <div class="flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Assigned To</mat-label>
+          <input type="text" matInput formControlName="AssignedTo">
+        </mat-form-field>
+  
+        <mat-form-field class="w-full">
+          <mat-label>Status</mat-label>
+          <input type="text" matInput formControlName="Status">
+        </mat-form-field>
+  
+        <mat-form-field class="w-full">
+          <mat-label>DueDate</mat-label>
+          <input type="text" matInput formControlName="DueDate">
+        </mat-form-field>
+  
+        <mat-form-field class="w-full">
+          <mat-label>Priority</mat-label>
+          <input type="text" matInput formControlName="Priority">
+        </mat-form-field>
+  
+        <mat-form-field class="w-full">
+          <mat-label>Comments</mat-label>
+          <input type="text" matInput formControlName="Comments">
+        </mat-form-field>
+      </div>
+  
+      <div class="flex justify-center">
+        <button mat-raised-button color="primary" class="m-4" (click)="editUserId ? updateTask() : addTask()">
+          {{ editUserId ? 'Update' : 'Add' }}
+        </button>
+      </div>
+    </form>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

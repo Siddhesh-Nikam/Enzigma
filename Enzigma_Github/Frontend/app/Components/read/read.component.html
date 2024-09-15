@@ -1,0 +1,76 @@
+<h2>All tasks</h2>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let task"> {{task._id}} </td>
+    </ng-container>
+
+    <!-- AssignedTo Column -->
+    <ng-container matColumnDef="AssignedTo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Assigned To </th>
+      <td mat-cell *matCellDef="let task"> {{task.AssignedTo}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let task"> {{task.Status}} </td>
+    </ng-container>
+
+    <!-- DueDate Column -->
+    <ng-container matColumnDef="DueDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+      <td mat-cell *matCellDef="let task"> {{task.DueDate}} </td>
+    </ng-container>
+
+    <!-- Priority Column -->
+    <ng-container matColumnDef="Priority">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
+      <td mat-cell *matCellDef="let task"> {{task.Priority}} </td>
+    </ng-container>
+
+    <!-- Comments Column -->
+    <ng-container matColumnDef="Comments">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
+      <td mat-cell *matCellDef="let task"> {{task.Comments}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let task">
+        <button 
+        mat-raised-button 
+        color="primary" 
+        [routerLink]="'/tasks/' + task._id"
+        >Edit</button>
+
+        <button 
+        mat-raised-button 
+        color="warn" 
+        (click)="delete(task._id!)"
+        >Delete</button>
+
+      </td>
+    </ng-container>
+
+    <!-- Header and Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let task; columns: displayedColumns;"></tr>
+
+    <!-- No matching data row -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
